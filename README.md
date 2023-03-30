@@ -13,16 +13,23 @@ MFs currently assumes that the users have already made sure that they share the 
 * update existing ableton live sets
 * update existing audio files
 
-* perform queries for retrieving access to specfic subgroups of audio files
+* perform basic queries
 
 * delete existing ableton lives sets  
 * delete existing audio files  
 
 
+## Version 0.1: 
 
-* create ableton live sets groups
-* create audio file groups
-  
+MFs currently assumes that the users have already made sure that they share the actual files in their local file system via external tools (eg. blend.io, google drive, soulseek, lp2p, etc).  
+
+### Users should be able to also:
+
+* add,update,delete ableton live sets tags
+* add,update,delete audio file tags
+
+* perform tag based queries
+
 
 
 SQL DB Tables:
