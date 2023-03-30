@@ -1,5 +1,5 @@
 # mfs
-Music.Files.(Management.)System, in short MFS is a python app that offers complex audio file sharing functionalities among a set of users and their personal ableton live set projects or audio file collections.
+Music.Files.Sharing.System, in short MFS is a python app that offers complex audio file sharing functionalities among a set of users and their personal ableton live set projects or audio file collections.
 
 
 
