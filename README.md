@@ -13,10 +13,15 @@ MFs currently assumes that the users have already made sure that they share the 
 * update existing ableton live sets
 * update existing audio files
 
-* perform basic queries
-
 * delete existing ableton lives sets  
 * delete existing audio files  
+
+* query relative audio file paths
+
+
+### Bonus:
+* prepare selected audio files for berlin based dj set 
+* play selected audio file locally   
 
 
 ## Version 0.1: 
