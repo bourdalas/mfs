@@ -18,10 +18,10 @@ MFs currently assumes that the users have already made sure that they share the 
 
 * query relative audio file paths
 
-
 ### Bonus:
-* prepare selected audio files for berlin based dj set 
-* play selected audio file locally   
+* play/preview selected audio files locally (eg. using ffmpeg)   
+* copy selected audio files to local directory (eg. flash drive)
+* process selected audio files (eg. berlin based dj set collections) 
 
 
 ## Version 0.1: 
