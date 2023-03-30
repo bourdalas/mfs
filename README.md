@@ -1,9 +1,9 @@
 # mfs
 Music.Files.Sharing.System, in short MFS is a python app that offers complex audio file sharing functionalities among a set of users and their personal ableton live set projects or audio file collections. 
 
-## Version 0.0: 
+MFS currently assumes that the users have already made sure that they share the actual files in their local file system via external tools (eg. blend.io, external hard drive, google drive, soulseek, lp2p, etc).  
 
-MFs currently assumes that the users have already made sure that they share the actual files in their local file system via external tools (eg. blend.io, google drive, soulseek, lp2p, etc).  
+## Version 0.0: 
 
 ### Users should be able to:
 
@@ -18,15 +18,15 @@ MFs currently assumes that the users have already made sure that they share the 
 
 * query relative audio file paths
 
-### Bonus:
+## Version 0.1: 
+
+### Users should be able to:
 * play/preview selected audio files locally (eg. using ffmpeg)   
 * copy selected audio files to local directory (eg. flash drive)
 * process selected audio files (eg. berlin based dj set collections) 
 
 
-## Version 0.1: 
-
-MFs currently assumes that the users have already made sure that they share the actual files in their local file system via external tools (eg. blend.io, google drive, soulseek, lp2p, etc).  
+## Version 0.2: 
 
 ### Users should be able to also:
 
