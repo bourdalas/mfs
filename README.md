@@ -4,49 +4,49 @@ Music.Files.(Management.)System, in short MFS is a python app that offers comple
 
 
 
-SQL DB:
+SQL DB Tables:
 
-Users Table
+    Users
 
-AbletonAudioClips Table
+    AbletonAudioClips
 
-AbletonAudioTracks Table
+    AbletonAudioTracks
 
-AbletonProjects Yable
+    AbletonProjects
 
-AbletonAudioFiles Table
+    AbletonAudioFiles
 
-AudioFiles Table 
+    AudioFiles
 
 
 Data Models:
 
-AudioFile 
+    AudioFile 
 
-AbletonAudioFile(AudioFile)
+    AbletonAudioFile(AudioFile)
 
-AbletonClip
+    AbletonClip
 
-AbletonMidiClip(AbletonClip)
+    AbletonMidiClip(AbletonClip)
 
-AbletonAudioClip(AbletonClip)
+    AbletonAudioClip(AbletonClip)
 
-AbletonTrack
+    AbletonTrack
 
-AbletonMidiTrack(AbletonTrack)
+    AbletonMidiTrack(AbletonTrack)
 
-AbletonAudioTrack(AbletonTrack)
+    AbletonAudioTrack(AbletonTrack)
 
-AbletonLiveSet
+    AbletonLiveSet
 
 
 AbletonLiveSetFileReader:
   
-  read_als_file(Path) -> XMLStruct
-  
-  _decompress_als_file(Path)
+    read_als_file(Path) -> XMLStruct
 
-  _read_xml_file() -> XMLStruct
+    _decompress_als_file(Path)
+
+    _read_xml_file() -> XMLStruct
 
 
 AbletonLiveSetParser:
