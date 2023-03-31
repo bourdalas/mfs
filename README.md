@@ -23,7 +23,7 @@ MFS currently assumes that the users have already made sure that they share the 
 ### Users should be able to:
 * play/preview selected audio files locally (eg. using ffmpeg)   
 * copy selected audio files to local directory (eg. flash drive)
-* process selected audio files (eg. berlin based dj set collections) 
+* transform selected audio files to RekordBox playlist XML (eg. berlin based dj set collections) 
 
 
 ## Version 0.2: 
