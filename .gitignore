@@ -1,0 +1,5 @@
+__pycache__
+sql_app.db
+.env
+poetry.lock
+README.rst

@@ -3,7 +3,38 @@ Music.Files.Sharing.System, in short MFS is a python app that offers complex aud
 
 MFS currently assumes that the users have already made sure that they share the actual files in their local file system via external tools (eg. blend.io, external hard drive, google drive, soulseek, lp2p, etc).  
 
-## Version 0.0: 
+# Installation
+
+``` bash 
+
+poetry install 
+
+```
+
+# Run locally 
+
+Start the fastapi backend in a terminal
+
+``` bash 
+ uvicorn mfs.backend.main:app --reload         
+```
+Start the streamlit app in a different terminal
+``` bash 
+streamlit run mfs/front_main.py 
+```
+
+
+## Version 0.1.0: 
+
+### Users should be able to:
+
+* Sign up / Log in / Log out 
+* View public users list
+
+
+
+
+## Version 0.2.0: 
 
 ### Users should be able to:
 
@@ -18,7 +49,7 @@ MFS currently assumes that the users have already made sure that they share the 
 
 * query relative audio file paths
 
-## Version 0.1: 
+## Version 0.3.0: 
 
 ### Users should be able to:
 * play/preview selected audio files locally (eg. using ffmpeg)   
