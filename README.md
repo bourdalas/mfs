@@ -5,6 +5,12 @@ MFS currently assumes that the users have already made sure that they share the 
 
 # Installation
 
+Create and activate a new python 3.9.6 environment.
+
+``` bash 
+pip/conda install poetry 
+```
+
 ``` bash 
 
 poetry install 
@@ -24,105 +30,4 @@ streamlit run mfs/front_main.py
 ```
 
 
-## Version 0.1.0: 
 
-### Users should be able to:
-
-* Sign up / Log in / Log out 
-* View public users list
-
-
-
-
-## Version 0.2.0: 
-
-### Users should be able to:
-
-* ingest the audio files metadata of local ableton live sets
-* ingest audio files metadata of local directories 
-
-* update existing ableton live sets
-* update existing audio files
-
-* delete existing ableton lives sets  
-* delete existing audio files  
-
-* query relative audio file paths
-
-## Version 0.3.0: 
-
-### Users should be able to:
-* play/preview selected audio files locally (eg. using ffmpeg)   
-* copy selected audio files to local directory (eg. flash drive)
-* transform selected audio files to RekordBox playlist XML (eg. berlin based dj set collections) 
-
-
-## Version 0.2: 
-
-### Users should be able to also:
-
-* add,update,delete ableton live sets tags
-* add,update,delete audio file tags
-
-* perform tag based queries
-
-
-
----
-
-## Requirements Scope 
-
-
-SQL DB Tables:
-
-    Users
-
-    AbletonAudioClips
-
-    AbletonAudioTracks
-
-    AbletonProjects
-
-    AbletonAudioFiles
-
-    AudioFiles
-
-Data Models:
-
-    AudioFile 
-
-    AbletonAudioFile(AudioFile)
-
-    AbletonClip
-
-    AbletonMidiClip(AbletonClip)
-
-    AbletonAudioClip(AbletonClip)
-
-    AbletonTrack
-
-    AbletonMidiTrack(AbletonTrack)
-
-    AbletonAudioTrack(AbletonTrack)
-
-    AbletonLiveSet
-
-
-AbletonLiveSetFileReader:
-  
-    read_als_file(Path) -> XMLStruct
-
-    _decompress_als_file(Path)
-
-    _read_xml_file() -> XMLStruct
-
-
-AbletonLiveSetParser:
-
-    parse_als_xml_struct(XMLStruct) -> AbletonLiveSet
-
-    _parse_audio_tracks() -> List[AbletonAudioTracks]
-
-    _parse_audio_track() -> AbletonAudioTrack
-    
-    _parse_audio_clip() -> AbletonAudioClip

@@ -25,6 +25,9 @@ geocoder = "^1.38.1"
 geopy = "^2.3.0"
 pycountry = "^22.3.5"
 python-dotenv = "^1.0.0"
+black = "^23.3.0"
+hypothesis = "^6.71.0"
+lxml = "^4.9.2"
 
 
 [tool.poetry.extras]
