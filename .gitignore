@@ -3,3 +3,6 @@ sql_app.db
 .env
 poetry.lock
 README.rst
+notes.md
+roadmap.md
+.hypothesis/
