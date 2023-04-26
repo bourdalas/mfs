@@ -17,6 +17,9 @@ class AudioFile(BaseModel):
     @property
     def extension(self) -> str:
         return self.path.suffix
+    
+    def __eq__(self, __value: object) -> bool:
+        return self.size == __value.size and self.length == __value.length and self.sample_rate == __value.sample_rate
 
 class AbletonAudioClip(BaseModel):
     id: int

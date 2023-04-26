@@ -1,6 +1,8 @@
 from datetime import datetime
+from typing import List
+from fastapi import HTTPException
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from mfs.backend import models, schemas
 
@@ -88,3 +90,58 @@ def create_user_item(db: Session, item: schemas.ItemCreate, username: str):
     db.commit()
     db.refresh(db_item)
     return db_item
+
+
+def create_user_group(db: Session, user_group: schemas.UserGroupCreate):
+    db_user_group = models.UserGroup(**user_group.dict())
+    db.add(db_user_group)
+    db.commit()
+    db.refresh(db_user_group)
+    return db_user_group
+
+def add_user_to_user_group(db: Session, username: str, group_id: str):
+    user = db.query(models.User).filter_by(username=username).first()
+    group = db.query(models.UserGroup).filter_by(id=group_id).first()
+    if user.username in [_user.username for _user in group.members]:
+        raise HTTPException(403)
+
+    group.members.append(user)
+    db.add(group)
+    db.commit()
+    db.refresh(group)
+    return group
+
+def get_all_user_groups(db: Session):
+    return db.query(models.UserGroup).all()
+
+def get_user_groups(db: Session, username: str):
+    user = db.query(models.User).filter_by(username=username).first()
+    return user.groups
+
+def create_message_for_user_group(db: Session, message: schemas.MessageCreate, group_id: int):
+    user = db.query(models.User).filter(models.User.username == message.sender_username).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    group = db.query(models.UserGroup).filter(models.UserGroup.id == group_id).first()
+    if not group:
+        raise HTTPException(status_code=404, detail="User group not found")
+    db_message = models.Message(**message.dict(), group_id=group_id)
+    db.add(db_message)
+    db.commit()
+    db.refresh(db_message)
+    return db_message
+
+
+def get_latest_messages_for_user_group(db: Session, group_id: int, n: int):
+    group = db.query(models.UserGroup).filter(models.UserGroup.id == group_id).first()
+    if not group:
+        raise HTTPException(404, "Group not found")
+    messages = db.query(models.Message).filter(models.Message.group_id == group_id).order_by(models.Message.timestamp.asc()).limit(n).all()
+    return messages
+
+
+def get_users_in_user_group(db: Session, group_id: int) -> List[schemas.User]:
+    group = db.query(models.UserGroup).filter(models.UserGroup.id == group_id).first()
+    if not group:
+        return []
+    return group.members

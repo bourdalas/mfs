@@ -122,6 +122,12 @@ class UserAuthenticator:
         if not token['exp_date'] > datetime.utcnow().timestamp():
             return 
 
+
+        response = requests.request("GET", f"{self.api_url}/users/username_password/{token['username']}/")
+ 
+        if response.status_code != 200:
+            return 
+
         self._set_session_state_fields(authentication_status=True, username=token['username'])
 
     def _hash_password(self, password: str) -> str:

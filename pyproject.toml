@@ -28,6 +28,7 @@ python-dotenv = "^1.0.0"
 black = "^23.3.0"
 hypothesis = "^6.71.0"
 lxml = "^4.9.2"
+streamlit-chat = "^0.0.2.2"
 
 
 [tool.poetry.extras]

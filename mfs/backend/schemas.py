@@ -21,6 +21,7 @@ class Item(ItemBase):
         orm_mode = True
 
 
+
 class UserBase(BaseModel):
     username: str = Field(..., min_length=4, max_length=50, regex="^[a-zA-Z0-9_-]+$",
                           description="The username of the user. It should only contain alphanumeric characters, underscores and hyphens.")
@@ -59,13 +60,45 @@ class UserLoginResponse(UserLogin):
     last_active_datetime: datetime
 
 
+class UserGroupJoin(BaseModel):
+    group_id: int
+    username: str
 
+class UserGroupCreate(BaseModel):
+    name: str
+    description: str
+
+
+class UserGroup(UserGroupCreate):
+    id: int
+    # members: List[UserExtended] = []
+    # messages: List[Message] = []
+    class Config:
+        orm_mode = True
+        
 class User(UserExtended):
     id: int
     is_active: bool
     subscription_datetime: datetime
     last_active_datetime: datetime
     items: List[Item] = []
+    groups: List[UserGroup] = []
+
+    class Config:
+        orm_mode = True
+
+
+
+class MessageCreate(BaseModel):
+    text: str
+    sender_username: str
+
+class Message(MessageCreate):
+    id: int
+    group: UserGroup
+    sender: User
+       
+    timestamp: datetime
 
     class Config:
         orm_mode = True
